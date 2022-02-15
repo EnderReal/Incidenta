@@ -6,7 +6,7 @@ import msvcrt as m
 
 print("Conectare...")
 
-luni=["index","Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie","Iulie","August","Noiembrie","Decembrie"]
+luni=["index","ianuarie","Februarie","Martie","Aprilie","Mai","Iunie","Iulie","August","Septembrie","Octombrie","noiembrie","Decembrie"]
 zi_fin=[0,31,28,31,30,31,30,31,31,30,31,30,31]
 today=date.today()
 zi=today.strftime("%d")
@@ -91,11 +91,6 @@ if str(requests.get(link))=="<Response [200]>":
 			if i[-1] == "\n":
 				i=i[:-1]
 			print(i[0:17:],i[27::])
-	for i in lines:
-		if "DR" in i and "G" in i and "NE" in i and "TI" in i:
-			if i[-1] == "\n":
-				i=i[:-1]
-			print("DRAGANESTI", i[20::])
 	file.close()
 	os.remove('auz_clear.txt')
 	print("\n")
@@ -125,15 +120,10 @@ if str(requests.get(link_ieri))=="<Response [200]>":
 			if i[-1] == "\n":
 				i=i[:-1]
 			print(i[0:17:],i[27::])
-	for i in lines:
-		if "DR" in i and "G" in i and "NE" in i and "TI" in i:
-			if i[-1] == "\n":
-				i=i[:-1]
-			print("DRAGANESTI", i[20::])
 	file.close()
 	os.remove('aux_clear.txt')
-
-
+if str(requests.get(link)) != "<Response [200]>" or str(requests.get(link_ieri)) != "<Response [200]>":
+	print("\n",link,"\n",link_ieri)
 print("\n")
 print("Press any key to continue...")
 m.getch()
